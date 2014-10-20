@@ -155,6 +155,8 @@ cd $p
 if test -e $build/Godeps
 then
     echo "-----> Running: godep go install ${FLAGS[@]} ./..."
+    go get -tags heroku ./...
+    godep restore
     godep go install "${FLAGS[@]}" ./...
 else
     echo "-----> Running: go get ${FLAGS[@]} ./..."
